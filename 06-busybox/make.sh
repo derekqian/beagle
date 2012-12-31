@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# http://balau82.wordpress.com/2010/03/22/compiling-linux-kernel-for-qemu-arm-emulator/
+# http://balau82.wordpress.com/2010/03/27/busybox-for-arm-on-qemu/
 
 rootfs=1
 
@@ -11,6 +11,8 @@ PATH=../arm-2011.03/bin:qemu/arm-softmmu:$PATH
 if [ "$rootfs" != "1" ] ; then
 qemu-system-arm -M versatilepb -m 128M -kernel kernel/arch/arm/boot/zImage
 else
-qemu-system-arm -M versatilepb -m 128M -nographic -kernel kernel/arch/arm/boot/zImage -initrd rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram rdinit=/bin/sh"
+#qemu-system-arm -M versatilepb -m 128M -nographic -kernel kernel/arch/arm/boot/zImage -initrd rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram rdinit=/bin/sh"
+#qemu-system-arm -M versatilepb -m 128M -nographic -kernel kernel/arch/arm/boot/zImage -initrd rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram rdinit=/bin/sh"
+qemu-system-arm -M versatilepb -m 128M -nographic -kernel kernel/arch/arm/boot/zImage -initrd rootfs.img.gz -append "console=ttyAMA0 root=/dev/ram rdinit=/sbin/init"
 fi
 
