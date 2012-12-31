@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # http://balau82.wordpress.com/2010/03/27/busybox-for-arm-on-qemu/
+# If you run QEMU adding the following options: “-d in_asm,cpu -D qemu.log -singlestep“, it will dump a log file (qemu.log) containing state of the CPU and the instructions during guest execution.
 
 rootfs=1
 
